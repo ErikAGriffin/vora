@@ -6,4 +6,5 @@ A Hobbit server environment set up for easy creation of new projects using Hobbi
 
 <h3>To-Do:</h3>
 * Create `rake init` task that removes remote origin and bundle installs.
-* Configure to use mote-angular
+* Create custom gem for custom-hobbit
+* configure said gem to use mote-angular gem
