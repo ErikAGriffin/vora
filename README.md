@@ -2,9 +2,9 @@
 A Hobbit server environment using Mote.
 
 Currently still in beta.
-A Hobbit server environment set up for easy creation of new projects using Hobbit and Mote.
+Allows for easy server setup using Hobbit to render either static html files or .mote files using mote-angular syntax.
 
 <h3>To-Do:</h3>
 * Create `rake init` task that removes remote origin and bundle installs.
-* Create custom gem for custom-hobbit
-* configure said gem to use mote-angular gem
+* Configure hobbit-hole gem to allow either mote or mote-angular syntax.
+* (Hopefully the mote gem itself will change the syntax)
