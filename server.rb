@@ -1,10 +1,8 @@
 require 'hobbit'
-require 'hobbit/contrib'
-require_relative 'custom-hobbit'
+require 'hobbit/hole'
 
 class Server < Hobbit::Base
-  include Hobbit::Mote
-  include Hobbit::Session
+  include Hobbit::Hole
 
 
 
