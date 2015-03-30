@@ -1,5 +1,6 @@
-task default: %w[test]
+task default: %w[init]
 
-task :test do
-  sh 'bundle install'
+task :init do
+  sh 'bundle install'  
+  sh 'git remote remove origin'
 end
