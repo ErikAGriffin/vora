@@ -5,6 +5,7 @@ gem 'hobbit-hole'
 gem 'mote-angular'
 gem 'rack-protection'
 gem 'bcrypt-ruby'
+gem 'sequel'
 group :test do
   gem 'shotgun'
   gem 'launchy'
