@@ -1,4 +1,4 @@
-ENV['RACK_ENV'] = 'test'
+ENV['VORA_DB_ENV'] = 'test'
 require './sever'
 require 'capybara/rspec'
 
