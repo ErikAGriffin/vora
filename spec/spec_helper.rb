@@ -5,6 +5,8 @@ require 'capybara/rspec'
 
 Capybara.app = Server
 
+DB = Sequel.connect("postgres://localhost/vora_test");
+
 RSpec.configure do |config|
 
   config.around :each do |example|

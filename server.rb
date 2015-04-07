@@ -8,6 +8,11 @@ class Server < Hobbit::Base
   env = ENV['VORA_DB_ENV'] || 'development'
   DB = Sequel.connect(ENV['DATABASE_URL'] || "postgres://localhost/vora_#{env}")
 
+  DB.create_table?(:songs) do
+    primary_key :id
+    String :title
+  end
+
   require './lib/model/song'
 
 
