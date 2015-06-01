@@ -11,6 +11,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     hobbit (0.6.0)
       rack
@@ -54,6 +55,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt-ruby
   capybara
+  database_cleaner
   hobbit
   hobbit-hole
   launchy
