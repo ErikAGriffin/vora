@@ -13,7 +13,7 @@ class Server < Hobbit::Base
 
 
   get '/' do
-    render 'index'
+    render_static 'index.html'
   end
 
 
