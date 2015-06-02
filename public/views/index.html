@@ -21,17 +21,28 @@
 
   </head>
   <body ng-controller="ApplicationController as appCtrl">
+
+
+    <template>
+      The Angular Ninja book is out of date.
+      That caused quite the headache. Read the actual ui-router
+      documentation.  While I think I actually want a mote template
+      with a page view for the welcome / login page, I believe
+      UI router is the way to achieve full app functionality of
+      keeping the music playing while navigating the rest of Vora.
+      Although I haven't researched any alternatives...
+    </template>
+
     Bilbo my old friend, this is going to be a night to remember.
-
+    {{3+33}}
+    <br />
+    <a ng-click="appCtrl.wut()">Okayy..?</a>
+    <a ui-sref="fest">HEY</a>
+    <a ui-sref="gateKeeper">You should start at the beginning.</a>
     <!-- put into a state -->
-    <form name="gateKeeperForm" ng-submit="" novalidate>
-      <legend>Login / Signup</legend>
+    <div ui-view></div>
+    <!-- <div ng-include="'/views/partials/login.html'"></div> -->
 
-      <input type="text" ng-model="appCtrl.userEmail" placeholder="Email" />
-      <input type="text" ng-model="appCtrl.password" placeholder="Password" />
-      <input type="text" ng-model="appCtrl.passwordConfirmation" placeholder="Confirm Password" />
-      <input type="submit" value="Enter" />
-    </form>
 
 
 
