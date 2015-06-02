@@ -20,7 +20,20 @@
 
 
   </head>
-  <body>
+  <body ng-controller="ApplicationController as appCtrl">
     Bilbo my old friend, this is going to be a night to remember.
+
+    <!-- put into a state -->
+    <form name="gateKeeperForm" ng-submit="" novalidate>
+      <legend>Login / Signup</legend>
+
+      <input type="text" ng-model="appCtrl.userEmail" placeholder="Email" />
+      <input type="text" ng-model="appCtrl.password" placeholder="Password" />
+      <input type="text" ng-model="appCtrl.passwordConfirmation" placeholder="Confirm Password" />
+      <input type="submit" value="Enter" />
+    </form>
+
+
+
   </body>
 </html>
