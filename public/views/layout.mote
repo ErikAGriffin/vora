@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="/styles/normalize.css">
-    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <title>Vora - Music For All</title>
   </head>
     <body>
         ~{content}~
