@@ -1,0 +1,8 @@
+<form name="gateKeeperForm" ng-controller ="GateKeeperController as gateCtrl" ng-submit="gateCtrl.submit()" novalidate>
+  <legend>Login / Signup</legend>
+
+  <input type="text" ng-model="gateCtrl.userEmail" placeholder="Email" />
+  <input type="text" ng-model="gateCtrl.userPassword" placeholder="Password" />
+  <input type="text" ng-model="gateCtrl.userPasswordConfirmation" placeholder="Confirm Password" />
+  <input type="submit" value="Enter" />
+</form>
