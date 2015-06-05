@@ -15,20 +15,15 @@
     var self = this;
 
     self.submit = function() {
-      var data = {
-        email: self.userEmail,
-        password: self.userPassword
-      };
-      console.log(data);
-      $http.post('/test', data)
+      $http.post('/test/'+self.userEmail)
         .success(function(data, status) {
-          console.log('Success! '+status+'\n--- '+data);
+          console.log(status+': Success!');
           console.log(data);
         })
         .error(function(data, status) {
-          console.log(status+': Error posting to /test.\n'+data);
+          console.log('Error: '+status);
+          console.log(data);
         });
-
     };
 
 

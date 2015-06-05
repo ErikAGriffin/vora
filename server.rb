@@ -17,11 +17,9 @@ class Server < Hobbit::Base
     session['user'] ? (render_static 'home.html') : (render 'login')
   end
 
-  post '/test' do
-    puts "Posting to /test..."
-    sheet = MultiJson.load(request.body, symbolize_keys: true)
-    p sheet
-    MultiJson.dump(sheet)
+  post '/test/:email' do
+    puts params[:email]
+    'Mufasa!'
   end
 
 
