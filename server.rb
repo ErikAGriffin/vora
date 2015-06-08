@@ -19,7 +19,11 @@ class Server < Hobbit::Base
 
   post '/test/:email' do
     puts params[:email]
-    'Mufasa!'
+    # Hmm .create stops executing if .valid? is false
+    # Can specify `raise_on_save_failure = false` to change this.
+    # User.create(email: params[:email])
+    new_user = User.new(email: params[:email])
+    new_user.valid? ? new_user.save : 'Error saving email'
   end
 
 
