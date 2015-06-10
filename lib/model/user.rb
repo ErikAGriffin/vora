@@ -16,8 +16,7 @@ class User < Sequel::Model
 
   def validate
     super
-    validates_presence :email, :password_hash
-    # validates_presence [:email, :username]
+    validates_presence [:email, :password_hash]
     validates_unique :email
     validates_format /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, :email, message: 'not a valid email'
   end
