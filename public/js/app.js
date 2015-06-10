@@ -16,7 +16,7 @@
 
     self.submit = function() {
       // $gateKeeper.checkUniqueEmail(self.userEmail);
-      $http.post('/test/'+self.userEmail)
+      $http.post('/test/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
         .success(function(data, status) {
           console.log(status+': Success!');
           console.log(data);
