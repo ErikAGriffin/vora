@@ -21,17 +21,29 @@
     self.userPasswordConfirmation = '';
 
     self.submit = function() {
-      // $gateKeeper.checkUniqueEmail(self.userEmail);
       $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
         .success(function(data, status) {
-          console.log(status+': Post successful, and');
+          console.log(status+': Post successful, yet');
           console.log(data);
         })
         .error(function(data, status) {
-          console.log('Error: '+status);
+          console.log('Error making post: '+status);
           console.log(data);
-        });
-    };
+    });};
+
+    self.checkUniqueEmail = function() {
+      $http.post('/checkemail/'+self.userEmail)
+        .success(function(email, status) {
+          console.log(status+': Post successful.');
+          if (!email.exists) {
+            console.log('Does not exist!');
+          }
+        })
+        .error(function(data, status) {
+          console.log('Error making post: '+status);
+          console.log(data);
+    });};
+
 
 
   }]);
