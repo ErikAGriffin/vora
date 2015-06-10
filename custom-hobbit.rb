@@ -1,7 +1,13 @@
 module Hobbit
   module Hole
 
-# add any custom methods or pathing changes you would like to make here, then require this file.
+    def validate_passwords(password, confirmation)
+      return false if confirmation != password
+      return false if password.length < 7
+      # return false if password !=~ /uppercaseregex/
+      true
+    end
+
 
   end
 end

@@ -11,14 +11,20 @@
     var self = this;
   });
 
+
+
   app.controller('GateController', ['$http', function($http) {
     var self = this;
 
+    self.userEmail = '';
+    self.userPassword = '';
+    self.userPasswordConfirmation = '';
+
     self.submit = function() {
       // $gateKeeper.checkUniqueEmail(self.userEmail);
-      $http.post('/test/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
+      $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
         .success(function(data, status) {
-          console.log(status+': Success!');
+          console.log(status+': Post successful, and');
           console.log(data);
         })
         .error(function(data, status) {
