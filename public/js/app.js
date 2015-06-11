@@ -19,24 +19,36 @@
     self.userEmail = '';
     self.userPassword = '';
     self.userPasswordConfirmation = '';
+    self.isNewUser = false;
 
     self.submit = function() {
-      $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
-        .success(function(data, status) {
-          console.log(status+': Post successful, yet');
-          console.log(data);
-        })
-        .error(function(data, status) {
-          console.log('Error making post: '+status);
-          console.log(data);
-    });};
+      if (self.isNewUser) {
+        $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
+          .success(function(data, status) {
+            console.log(status+': Post successful, yet');
+            console.log(data);
+          })
+          .error(function(data, status) {
+            console.log('Error making post: '+status);
+            console.log(data);
+      });} else {
+        $http.post('/login/'+self.userEmail+'/'+self.userPassword)
+          .success(function(data, status) {
+            console.log('success');
+          })
+          .error(function(data, status) {
+            console.log('erroar');
+      });}
+    };
+
 
     self.checkUniqueEmail = function() {
       $http.post('/checkemail/'+self.userEmail)
         .success(function(email, status) {
-          console.log(status+': Post successful.');
           if (!email.exists) {
-            console.log('Does not exist!');
+            self.isNewUser = true;
+          } else {
+            self.isNewUser = false;
           }
         })
         .error(function(data, status) {

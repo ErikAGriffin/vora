@@ -4,10 +4,9 @@ class User < Sequel::Model
   include BCrypt
   plugin :validation_helpers
 
-  def email=(new_email)
-    @email = new_email.downcase
-  end
-
+  # Hmm this does not seem to be necessary / used,
+  # as I am not getting a User object back but a
+  # hash of the values...
   def password
     @password ||= Password.new(self.password_hash)
   end

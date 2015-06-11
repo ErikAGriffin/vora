@@ -3,6 +3,8 @@ require 'hobbit/hole'
 require 'multi_json'
 require 'bcrypt'
 require './custom-hobbit'
+# Wow. My render static only returns the
+# given html as a string to whatever asked for it.
 
 class Server < Hobbit::Base
   include Hobbit::Hole
@@ -16,15 +18,25 @@ class Server < Hobbit::Base
 
   post '/createuser/:email/:password/:confirmation' do
     if validate_passwords(params[:password],params[:confirmation])
-      new_user = User.new(email: params[:email], password: params[:password])
-      if new_user.valid?
-        new_user.save
+      new_user = create_user(params[:email],params[:password])
+      if new_user
         session['user'] = new_user.id
-        render_static 'home.html'
+        # redirect '/'
+        render 'login'
       end
     end
-    # messages or no? Angular's $http.post expects a response..
-    'no message.'
+  end
+
+  post '/login/:email/:password' do
+    # write a test if the email does not exist in database
+    user = DB[:users].where('email = ?',params[:email].downcase)
+    if validate_login(user.get(:password_hash),params[:password])
+      session['user'] = user.get(:id)
+      # redirect '/'
+      render 'login'
+    else
+      'Wrong password.'
+    end
   end
 
   post '/checkemail/:email' do
