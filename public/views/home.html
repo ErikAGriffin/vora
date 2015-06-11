@@ -3,6 +3,8 @@
   <head>
     <title>Vora - Music For All</title>
 
+    <base href="/" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="components/pure/base-min.css" />
@@ -24,6 +26,15 @@
     Bilbo my old friend, this is going to be a night to remember.
 
     <!-- put into a state -->
+    <form name="gateForm" ng-controller ="GateController as gateCtrl" ng-submit="gateCtrl.submit()" novalidate>
+      <legend>Login / Signup</legend>
+
+      <input type="text" ng-model="gateCtrl.userEmail" placeholder="Email" ng-blur="gateCtrl.checkUniqueEmail()" required/>
+      <input type="text" ng-model="gateCtrl.userPassword" placeholder="Password" required/>
+      <input type="text" ng-model="gateCtrl.userPasswordConfirmation" placeholder="Confirm Password" ng-show="gateCtrl.isNewUser" />
+      <input type="submit" value="Enter" />
+      {{gateForm.$valid}}
+    </form>
 
   </body>
 </html>

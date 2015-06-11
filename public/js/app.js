@@ -3,6 +3,19 @@
 
   app.config(function($stateProvider,$urlRouterProvider,$locationProvider) {
 
+    // $stateProvider.state('gate', {
+    //   url: '/',
+    //   contoller: 'ApplicationController',
+    //   templateUrl: '/views/partials/login.html'
+    // });
+    //
+    // $stateProvider.state('state', {
+    //   url:'/stateurl',
+    //   controller: 'ApplicationController',
+    //   template: 'Whataver <span>HTML</span> I want.'
+    // });
+
+    $urlRouterProvider.otherwise('/');
 
     $locationProvider.html5Mode(true);
   });

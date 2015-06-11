@@ -13,7 +13,8 @@ class Server < Hobbit::Base
 
 
   get '/' do
-    session['user'] ? (render_static 'home.html') : (render 'login')
+    # session['user'] ? (render_static 'home.html') : (render 'login')
+    render_static 'home.html'
   end
 
   post '/createuser/:email/:password/:confirmation' do
