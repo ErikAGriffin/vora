@@ -4,6 +4,10 @@ class User < Sequel::Model
   include BCrypt
   plugin :validation_helpers
 
+  def email=(new_email)
+    @email = new_email.downcase
+  end
+
   def password
     @password ||= Password.new(self.password_hash)
   end
@@ -12,7 +16,6 @@ class User < Sequel::Model
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-
 
   def validate
     super

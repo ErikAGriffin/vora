@@ -23,6 +23,7 @@ class Server < Hobbit::Base
         render_static 'home.html'
       end
     end
+    # messages or no? Angular's $http.post expects a response..
     'no message.'
   end
 
