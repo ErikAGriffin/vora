@@ -31,7 +31,7 @@ class Server < Hobbit::Base
   post '/login/:email/:password' do
     # write a test if the email does not exist in database
     user = DB[:users].where('email = ?',params[:email].downcase)
-    if validate_login(user.get(:password_hash),params[:password])
+    if user.first && validate_login(user.get(:password_hash),params[:password])
       session['user'] = user.get(:id)
       # redirect '/'
       render 'login'
