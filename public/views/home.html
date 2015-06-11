@@ -23,6 +23,21 @@
 
   </head>
   <body ng-controller="ApplicationController as appCtrl">
+
+    <template>
+      Okay so I need to read the ui-router documentation, and that stack post
+      on different states having the same url.
+
+      I also need to research how to handle session information in Angular.
+      My guess would be that you have some sort of user object that is held
+      by the ApplicationController.  Obviously this would persist through state
+      changes, but for page reloads I could either go back to rendering the
+      page as a .mote file and in a script tag pass in the relevant session
+      variable, or have angular make a post request to get the session on every
+      page reload.
+
+    </template>
+
     Bilbo my old friend, this is going to be a night to remember.
 
     <!-- put into a state -->
