@@ -3,8 +3,6 @@ require 'hobbit/hole'
 require 'multi_json'
 require 'bcrypt'
 require './custom-hobbit'
-# Wow. My render static only returns the
-# given html as a string to whatever asked for it.
 
 class Server < Hobbit::Base
   include Hobbit::Hole
@@ -22,21 +20,21 @@ class Server < Hobbit::Base
       new_user = create_user(params[:email],params[:password])
       if new_user
         session['user'] = new_user.id
-        # redirect '/'
-        render 'login'
+        p session
+        puts "*----*----" * 10
+        p session['user']
       end
     end
   end
 
   post '/login/:email/:password' do
     # write a test if the email does not exist in database
-    user = DB[:users].where('email = ?',params[:email].downcase)
-    if user.first && validate_login(user.get(:password_hash),params[:password])
-      session['user'] = user.get(:id)
-      # redirect '/'
-      render 'login'
+    user = User.where('email = ?',params[:email].downcase).first
+    if user && user.password == params[:password]
+      session['user'] = user.id
+      'Logged In'
     else
-      'Wrong password.'
+      'Wrong Password'
     end
   end
 
