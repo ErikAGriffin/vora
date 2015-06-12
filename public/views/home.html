@@ -25,9 +25,6 @@
   <body ng-controller="ApplicationController as appCtrl">
 
     <template>
-      Okay so I need to read the ui-router documentation, and that stack post
-      on different states having the same url.
-
       I also need to research how to handle session information in Angular.
       My guess would be that you have some sort of user object that is held
       by the ApplicationController.  Obviously this would persist through state
@@ -41,15 +38,7 @@
     Bilbo my old friend, this is going to be a night to remember.
 
     <!-- put into a state -->
-    <form name="gateForm" ng-controller ="GateController as gateCtrl" ng-submit="gateCtrl.submit()" novalidate>
-      <legend>Login / Signup</legend>
-
-      <input type="text" ng-model="gateCtrl.userEmail" placeholder="Email" ng-blur="gateCtrl.checkUniqueEmail()" required/>
-      <input type="text" ng-model="gateCtrl.userPassword" placeholder="Password" required/>
-      <input type="text" ng-model="gateCtrl.userPasswordConfirmation" placeholder="Confirm Password" ng-show="gateCtrl.isNewUser" />
-      <input type="submit" value="Enter" />
-      {{gateForm.$valid}}
-    </form>
+    <main ui-view></main>
 
   </body>
 </html>

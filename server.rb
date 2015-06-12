@@ -20,9 +20,6 @@ class Server < Hobbit::Base
       new_user = create_user(params[:email],params[:password])
       if new_user
         session['user'] = new_user.id
-        p session
-        puts "*----*----" * 10
-        p session['user']
       end
     end
   end
@@ -43,6 +40,10 @@ class Server < Hobbit::Base
     # there some better way of getting case insensitivity?
     user = DB[:users].where('email = ?',params[:email].downcase)
     MultiJson.dump({exists: user.get(:email)})
+  end
+
+  get '*' do
+    render_static 'home.html'
   end
 
 

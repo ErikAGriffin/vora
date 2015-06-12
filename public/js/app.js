@@ -3,17 +3,12 @@
 
   app.config(function($stateProvider,$urlRouterProvider,$locationProvider) {
 
-    // $stateProvider.state('gate', {
-    //   url: '/',
-    //   contoller: 'ApplicationController',
-    //   templateUrl: '/views/partials/login.html'
-    // });
-    //
-    // $stateProvider.state('state', {
-    //   url:'/stateurl',
-    //   controller: 'ApplicationController',
-    //   template: 'Whataver <span>HTML</span> I want.'
-    // });
+    $stateProvider
+      .state('gate', {
+        url:'/',
+        controller:'GateController as gateCtrl',
+        templateUrl: '/views/partials/login.html'
+      });
 
     $urlRouterProvider.otherwise('/');
 
@@ -29,9 +24,6 @@
   app.controller('GateController', ['$http', function($http) {
     var self = this;
 
-    self.userEmail = '';
-    self.userPassword = '';
-    self.userPasswordConfirmation = '';
     self.isNewUser = false;
 
     self.submit = function() {
