@@ -28,24 +28,11 @@
 
     self.submit = function() {
       if (self.isNewUser) {
-        $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
-          .success(function(data, status) {
-            console.log(status+': Post successful, yet');
-            console.log(data);
-          })
-          .error(function(data, status) {
-            console.log('Error making post: '+status);
-            console.log(data);
-      });} else {
-        $http.post('/login/'+self.userEmail+'/'+self.userPassword)
-          .success(function(data, status) {
-            console.log('success');
-          })
-          .error(function(data, status) {
-            console.log('erroar');
-      });}
+        postNewUser();
+      } else {
+        postUserLogin();
+      }
     };
-
 
     self.checkUniqueEmail = function() {
       $http.post('/checkemail/'+self.userEmail)
@@ -61,7 +48,27 @@
           console.log(data);
     });};
 
+    var postNewUser = function() {
+      $http.post('/createuser/'+self.userEmail+'/'+self.userPassword+'/'+self.userPasswordConfirmation)
+        .success(function(data, status) {
+          console.log(status+': Post successful, yet');
+          console.log(data);
+        })
+        .error(function(data, status) {
+          console.log('Error making post: '+status);
+          console.log(data);
+      });
+    };
 
+    var postUserLogin = function() {
+      $http.post('/login/'+self.userEmail+'/'+self.userPassword)
+        .success(function(data, status) {
+          console.log('success');
+        })
+        .error(function(data, status) {
+          console.log('error posting login');
+      });
+    };
 
   }]);
 
